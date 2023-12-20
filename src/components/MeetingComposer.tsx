@@ -8,7 +8,7 @@ function MeetingComposer() {
   const handleSubmit = () => {
     if (description === "") return;
 
-    const id = db.meetings.add({
+    db.meetings.add({
       description,
       tags: [],
       created: new Date(),

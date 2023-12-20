@@ -1,8 +1,9 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Meeting from "./components/Meeting";
 import MeetingComposer from "./components/MeetingComposer";
+import TaskComposer from "./components/TaskComposer";
 import { db } from "./data/DB";
 import Bool from "./data/Types";
 
@@ -20,26 +21,11 @@ function App() {
   const [selected, setSelected] = useState<Selection.TASK | Selection.MEETING>(
     Selection.TASK
   );
-  const [description, setDescription] = useState<string>("");
 
   const toggleSelection = () => {
     setSelected(
       selected === Selection.TASK ? Selection.MEETING : Selection.TASK
     );
-  };
-
-  const handleSubmit = (event: any) => {
-    if (event.type === "keydown" && event.key !== "Enter") return;
-    if (description === "") return;
-
-    const id = db.tasks.add({
-      type: "SHORT_TERM",
-      description,
-      completed: Bool.FALSE,
-      updated: new Date(),
-    });
-
-    setDescription("");
   };
 
   const handleComplete = (id?: number) => {
@@ -53,18 +39,7 @@ function App() {
         {selected === Selection.TASK ? <span>✏️</span> : <span>📃</span>}
       </p>
       <div className="mt-2">
-        {selected === Selection.TASK ? (
-          <input
-            style={{ backgroundColor: "rgba(255,255,255,0.5)" }}
-            className="px-4 py-3 w-full rounded-xl text-lg"
-            onKeyDown={handleSubmit}
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            autoFocus={true}
-          ></input>
-        ) : (
-          <MeetingComposer />
-        )}
+        {selected === Selection.TASK ? <TaskComposer /> : <MeetingComposer />}
       </div>
       {tasks?.map((task) => (
         <p
