@@ -12,6 +12,9 @@ export interface Task {
 
 export interface Meeting {
   id?: number;
+  description: string;
+  created: Date;
+  tags: string[];
 }
 
 export class DB extends Dexie {
