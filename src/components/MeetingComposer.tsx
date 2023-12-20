@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { db } from "./data/DB";
+import { db } from "../data/DB";
 
 function MeetingComposer() {
   const [description, setDescription] = useState<string>("");

@@ -1,5 +1,5 @@
-import Time from "./components/Time";
-import { Meeting as MeetingInterface } from "./data/DB";
+import { Meeting as MeetingInterface } from "../data/DB";
+import Time from "./Time";
 
 function Meeting({ meeting }: { meeting: MeetingInterface }) {
   return (
