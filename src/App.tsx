@@ -1,8 +1,8 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { useEffect, useState } from "react";
 
-import Meeting from "./Meeting";
-import MeetingComposer from "./MeetingComposer";
+import Meeting from "./components/Meeting";
+import MeetingComposer from "./components/MeetingComposer";
 import { db } from "./data/DB";
 import Bool from "./data/Types";
 
