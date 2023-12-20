@@ -21,7 +21,7 @@ function MeetingComposer() {
     <>
       <textarea
         style={{ backgroundColor: "rgba(255,255,255,0.5)" }}
-        className="px-4 py-3 w-full rounded-xl text-lg resize-none"
+        className="px-4 py-3 w-full rounded-xl text-lg resize-none h-36"
         onChange={(event) => setDescription(event.target.value)}
         autoFocus={true}
       ></textarea>
