@@ -23,7 +23,7 @@ function TaskComposer() {
   return (
     <input
       style={{ backgroundColor: "rgba(255,255,255,0.5)" }}
-      className="px-4 py-3 w-full rounded-xl text-lg"
+      className="px-4 py-3 w-full rounded-xl"
       onKeyDown={handleSubmit}
       value={description}
       onChange={(e) => setDescription(e.target.value)}

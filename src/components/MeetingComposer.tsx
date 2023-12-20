@@ -3,7 +3,7 @@ import { useState } from "react";
 import { db } from "../data/DB";
 
 const availableTags = [
-  "Team",
+  "Team Meeting",
   "Standup",
   "One-One",
   "Rodo",
@@ -33,12 +33,12 @@ function MeetingComposer() {
     <>
       <textarea
         style={{ backgroundColor: "rgba(255,255,255,0.5)" }}
-        className="px-4 py-3 w-full rounded-xl text-lg resize-none h-36"
+        className="px-4 py-3 w-full rounded-xl resize-none h-36"
         onChange={(event) => setDescription(event.target.value)}
         autoFocus={true}
       ></textarea>
-      <div className="flex justify-between">
-        <div className="flex flex-wrap gap-2 mt-2">
+      <div className="flex justify-between items-start mt-2">
+        <div className="flex flex-wrap gap-2">
           {availableTags.map((tag) => (
             <span
               style={{ backgroundColor: "rgba(255,255,255,0.15)" }}
@@ -49,7 +49,6 @@ function MeetingComposer() {
             </span>
           ))}
         </div>
-
         <button
           type="submit"
           className="text-sm text-white opacity-50 px-2"

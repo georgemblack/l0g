@@ -45,7 +45,7 @@ function App() {
         <p
           key={String(task.id)}
           onClick={() => handleComplete(task.id)}
-          className="cursor-pointer mt-4 leading-5 text-lg"
+          className="cursor-pointer mt-4 leading-5"
         >
           {task.description}
         </p>
