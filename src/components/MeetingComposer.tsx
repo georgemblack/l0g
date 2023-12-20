@@ -22,12 +22,14 @@ function MeetingComposer() {
 
     db.meetings.add({
       description,
-      tags: [],
+      tags,
       created: new Date(),
     });
 
     setDescription("");
   };
+
+  //className="text-xs text-white py-1 px-2 rounded cursor-pointer"
 
   return (
     <>
@@ -41,9 +43,16 @@ function MeetingComposer() {
         <div className="flex flex-wrap gap-2">
           {availableTags.map((tag) => (
             <span
-              style={{ backgroundColor: "rgba(255,255,255,0.15)" }}
+              style={{
+                backgroundColor: tags.includes(tag)
+                  ? "rgba(255,255,255,0.5)"
+                  : "rgba(255,255,255,0.15)",
+              }}
               className="text-xs text-white py-1 px-2 rounded cursor-pointer"
-              onClick={() => setTags([...tags, tag])}
+              onClick={() => {
+                if (tags.includes(tag)) setTags(tags.filter((t) => t !== tag));
+                else setTags([...tags, tag]);
+              }}
             >
               {tag}
             </span>

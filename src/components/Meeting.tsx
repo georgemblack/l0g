@@ -5,7 +5,7 @@ function Meeting({ meeting }: { meeting: MeetingInterface }) {
   return (
     <>
       <p className="mt-4 text-sm opacity-20">
-        <Time timestamp={meeting.created.getDate()} />
+        <Time date={meeting.created} />
       </p>
       <p className="leading-5 text-lg">{meeting.description}</p>
     </>
